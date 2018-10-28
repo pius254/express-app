@@ -5,12 +5,17 @@ import data from './data/data.json'
 const app = express();
 const PORT = 3000;
 
+app.use(express.static('public'));
+
+// Loading static files in images folder using /images path
+app.use('/images', express.static('images'));
+
 // Changing The X-Powered-By in the header
 // app.use('/', (req, res) =>
 //     res.setHeader('X-Powered_By', 'kaboom.com')
 // );
 
-// Creating simple requests
+// Creating simple routes
 app.get('/', (req, res) =>
     res.json(data)
 );
