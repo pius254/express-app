@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon ./index.js --exec babel-node -e js"
+    "start": "nodemon ./index.js --exec babel-node -e js"
   },
   "author": "Pius Muriithi <piusmuriithi1@gmail.com>",
   "license": "ISC",
