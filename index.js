@@ -21,13 +21,19 @@ app.get('/', (req, res) =>
 );
 
 // Using Parameters in routes
-app.get('/item/:id', (req, res) => {
+app.get('/item/:id', (req, res, next) => {
     console.log(req.params.id);
     let user = Number(req.params.id);
     console.log(user);
     console.log(data[user]);
     res.send(data[user]);
-});
+    next();
+}, (req, res, next) => {
+    console.log("Did you get the data?");
+    next();
+}, (req, res) =>
+    console.log("Yes, i did.")
+);
 
 app.post('/newItem', (req, res) => 
     res.send(`A post request with /newItem on port ${PORT}`)
