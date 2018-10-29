@@ -1,3 +1,9 @@
+/**
+ * Author: Pius Muriithi
+ * Email: piusmuriithi1@gmail.com
+ * Note: Some Tests have been done using Postman
+ */
+
 // Importing express and other deps or data
 import express from 'express';
 import data from './data/data.json'
@@ -35,17 +41,23 @@ app.get('/item/:id', (req, res, next) => {
     console.log("Yes, i did.")
 );
 
-app.post('/newItem', (req, res) => 
-    res.send(`A post request with /newItem on port ${PORT}`)
-);
+// Route chaining
+app.route('/item')
+    .get((req, res) => {
+        res.send(`A get request with /item route on port ${PORT}`)
+    })
 
-app.put('/item', (req, res) => 
-    res.send(`An update request with /item on port ${PORT}`)
-);
+    .post((req, res) => 
+        res.send(`A post request with /item route on port ${PORT}`)
+    )
+    .put((req, res) => 
+        res.send(`An update request with /item route on port ${PORT}`)
+    )
 
-app.delete('/item', (req, res) => 
-    res.send(`A delete request with /item on port ${PORT}`)
-);
+    .delete((req, res) => 
+        res.send(`A delete request with /item route on port ${PORT}`)
+    )
+    // End: Route Chaining
 
 app.listen(PORT, () => {
     console.log(`Your server is running on port ${PORT}`)
