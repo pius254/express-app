@@ -9,6 +9,7 @@
   "author": "Pius Muriithi <piusmuriithi1@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "event-stream": "^3.3.4",
     "express": "^4.16.4",
     "nodemon": "^1.18.5"
   },
